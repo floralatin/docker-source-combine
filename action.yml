@@ -5,6 +5,9 @@ inputs:
     description: python-version
     default: '3.7'
     required: true
+  github-token: 
+    description: github-token
+    required: false
 outputs:
   result:
     description: 'result'
@@ -26,7 +29,7 @@ runs:
         uses: actions/checkout@v2
         with:
           repository: jina-ai/jina
-          token: ${{ secrets.ACCESS_TOKEN }}
+          token: ${{ inputs.github-token }}
           ref: refs/heads/master
           path: jina
       
